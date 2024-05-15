@@ -141,7 +141,7 @@
           </dependency>
         </dependencies>
         <configuration>
-          <repoToken>bROjTqbs2Z5TNaDjfxij9D3xVSDVCLjPmA</repoToken>
+          <repoToken>bROjTqbs2Z5TNaDjfxij9D3xVSDVCLjPm</repoToken>
         </configuration>
       </plugin>
       <plugin>
