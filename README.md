@@ -1,4 +1,4 @@
-[![Java CI with Maven](https://github.com/leosalvi03/MTSS--Assignment_2/actions/workflows/build.yml/badge.svg)](https://github.com/leosalvi03/MTSS--Assignment_2/actions/workflows/build.yml)
+Build infos: [![Java CI with Maven](https://github.com/leosalvi03/MTSS--Assignment_2/actions/workflows/build.yml/badge.svg)](https://github.com/leosalvi03/MTSS--Assignment_2/actions/workflows/build.yml)
 ![checkstyle](.github/ReadmeBadges/checkstyle-result.svg)
 
 This branch (Jacoco):
