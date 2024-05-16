@@ -19,7 +19,7 @@ public class IntegerToRoman {
                     "come parametro un numero minore di zero");
         }
 
-        int threshold = 10;
+        int threshold = 20;
         if(number > threshold) {
             String message = String.format("E' stato passato " +
                     "come parametro un numero maggiore di %d", threshold);
