@@ -43,6 +43,12 @@ public class RomanPrinter {
                         "   > <  ",
                         "  / . \\ ",
                         " /_/ \\_\\" },
+                      { "  _      ",
+                        " | |     ",
+                        " | |     ",
+                        " | |     ",
+                        " | |____ ",
+                        " |______|" },
         };
 
         for (char c : romanNumber.toCharArray()) {
@@ -55,6 +61,9 @@ public class RomanPrinter {
                 case 'X':
                     appendMatrix(destination, matrices[2]);
                     break;
+                case 'L':
+                    appendMatrix(destination, matrices[3]);
+                default:
             }
         }
     }

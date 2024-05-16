@@ -25,7 +25,7 @@ public class IntegerToRomanTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testConvert_NumberOutOfRange() {
-        int num = 21;
+        int num = 51;
 
         String res = IntegerToRoman.convert(num);
     }
@@ -45,7 +45,7 @@ public class IntegerToRomanTest {
     }
 
     @Test
-    public void testConvertFromFourToSix() {
+    public void testConvert_FromFourToSix() {
         int[] inputDecimalNumbers = {4,5,6};
         String[] expectedRomanNumbers = {"IV", "V", "VI"};
 
@@ -59,7 +59,7 @@ public class IntegerToRomanTest {
     }
 
     @Test
-    public void testConvertSevenToTen() {
+    public void testConvert_FromSevenToTen() {
         int[] inputDecimalNumbers = {7,8,9,10};
         String[] expectedRomanNumbers = {"VII", "VIII", "IX", "X"};
 
@@ -73,10 +73,31 @@ public class IntegerToRomanTest {
     }
 
     @Test
-    public void testConvertElevenToTwenty() {
+    public void testConvert_FromElevenToTwenty() {
         int[] inputDecimalNumbers = {11,12,13,14,15,16,17,18,19,20};
         String[] expectedRomanNumbers = {"XI", "XII", "XIII", "XIV",
                 "XV", "XVI", "XVII", "XVIII", "XIX", "XX"};
+
+        String[] outputRomanNumbers = new String[expectedRomanNumbers.length];
+        for (int i=0; i<inputDecimalNumbers.length; i++){
+            outputRomanNumbers[i] =
+                    IntegerToRoman.convert(inputDecimalNumbers[i]);
+        }
+
+        assertArrayEquals(expectedRomanNumbers, outputRomanNumbers);
+    }
+
+    @Test
+    public void testConvert_FromTwentyOneToFifty() {
+        int[] inputDecimalNumbers = {21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+                31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+                41, 42, 43, 44, 45, 46, 47, 48, 49, 50};
+        String[] expectedRomanNumbers = {"XXI", "XXII", "XXIII", "XXIV", "XXV",
+                "XXVI", "XXVII", "XXVIII", "XXIX", "XXX",
+                "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV",
+                "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
+                "XLI", "XLII", "XLIII", "XLIV", "XLV",
+                "XLVI", "XLVII", "XLVIII", "XLIX", "L"};
 
         String[] outputRomanNumbers = new String[expectedRomanNumbers.length];
         for (int i=0; i<inputDecimalNumbers.length; i++){

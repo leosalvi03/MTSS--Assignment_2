@@ -11,18 +11,18 @@ public class IntegerToRoman {
     public static String convert(int number) throws IllegalArgumentException {
         if(number == 0) {
             throw new IllegalArgumentException("E' stato passato " +
-                    "come parametro un numero uguale a zero");
+                    "come argomento un numero uguale a zero");
         }
 
         if(number < 0) {
             throw new IllegalArgumentException("E' stato passato " +
-                    "come parametro un numero minore di zero");
+                    "come argomento un numero minore di zero");
         }
 
-        int threshold = 20;
+        int threshold = 50;
         if(number > threshold) {
             String message = String.format("E' stato passato " +
-                    "come parametro un numero maggiore di %d", threshold);
+                    "come argomento un numero maggiore di %d", threshold);
             throw new IllegalArgumentException(message);
         }
 
@@ -32,8 +32,10 @@ public class IntegerToRoman {
         map.put(5, "V");
         map.put(9, "IX");
         map.put(10, "X");
+        map.put(40, "XL");
+        map.put(50, "L");
 
-        int[] decimalValues = {10, 9, 5, 4, 1 };
+        int[] decimalValues = { 50, 40, 10, 9, 5, 4, 1 };
         StringBuilder romanNumeral = new StringBuilder();
 
         for (int decimalValue : decimalValues) {
