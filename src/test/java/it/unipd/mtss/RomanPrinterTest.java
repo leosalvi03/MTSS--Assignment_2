@@ -25,7 +25,7 @@ public class RomanPrinterTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testPrint_NumberOutOfRange() {
-        int num = 7;
+        int num = 11;
 
         String res = IntegerToRoman.convert(num);
     }
@@ -39,19 +39,19 @@ public class RomanPrinterTest {
                         "   | |  ",
                         "   | |  ",
                         "  _| |_ ",
-                        " |_____|"    },
+                        " |_____|"},
                       { "  _____   _____ ",
                         " |_   _| |_   _|",
                         "   | |     | |  ",
                         "   | |     | |  ",
                         "  _| |_   _| |_ ",
-                        " |_____| |_____|"    },
+                        " |_____| |_____|"},
                       { "  _____   _____   _____ ",
                         " |_   _| |_   _| |_   _|",
                         "   | |     | |     | |  ",
                         "   | |     | |     | |  ",
                         "  _| |_   _| |_   _| |_ ",
-                        " |_____| |_____| |_____|"    }
+                        " |_____| |_____| |_____|"}
         };
 
         String[] expectedStringPrint = {
@@ -72,19 +72,19 @@ public class RomanPrinterTest {
     public void testPrintFromFourToSix() {
         int[] inputDecimalNumbers = {4,5,6};
         String[][] expectedPrint = {
-                { "  _____  __      __",
+                      { "  _____  __      __",
                         " |_   _| \\ \\    / /",
                         "   | |    \\ \\  / / ",
                         "   | |     \\ \\/ /  ",
                         "  _| |_     \\  /   ",
                         " |_____|     \\/    " },
-                { " __      __",
+                      { " __      __",
                         " \\ \\    / /",
                         "  \\ \\  / / ",
                         "   \\ \\/ /  ",
                         "    \\  /   ",
                         "     \\/    " },
-                {" __      __  _____ ",
+                       {" __      __  _____ ",
                         " \\ \\    / / |_   _|",
                         "  \\ \\  / /    | |  ",
                         "   \\ \\/ /     | |  ",
@@ -96,6 +96,51 @@ public class RomanPrinterTest {
                 RomanPrinter.convertToString(expectedPrint[0]),
                 RomanPrinter.convertToString(expectedPrint[1]),
                 RomanPrinter.convertToString(expectedPrint[2])
+        };
+
+        String[] outputPrint = new String[expectedStringPrint.length];
+        for (int i=0; i<inputDecimalNumbers.length; i++){
+            outputPrint[i] = RomanPrinter.print(inputDecimalNumbers[i]);
+        }
+
+        assertArrayEquals(expectedStringPrint, outputPrint);
+    }
+
+    @Test
+    public void testPrintFromSevenToTen() {
+        int[] inputDecimalNumbers = {7,8,9,10};
+        String[][] expectedPrint = {
+                      { " __      __  _____   _____ ",
+                        " \\ \\    / / |_   _| |_   _|",
+                        "  \\ \\  / /    | |     | |  ",
+                        "   \\ \\/ /     | |     | |  ",
+                        "    \\  /     _| |_   _| |_ ",
+                        "     \\/     |_____| |_____|" },
+                      { " __      __  _____   _____   _____ ",
+                        " \\ \\    / / |_   _| |_   _| |_   _|",
+                        "  \\ \\  / /    | |     | |     | |  ",
+                        "   \\ \\/ /     | |     | |     | |  ",
+                        "    \\  /     _| |_   _| |_   _| |_ ",
+                        "     \\/     |_____| |_____| |_____|" },
+                      { "  _____  __   __" ,
+                        " |_   _| \\ \\ / /" ,
+                        "   | |    \\ V / " ,
+                        "   | |     > <  " ,
+                        "  _| |_   / . \\ " ,
+                        " |_____| /_/ \\_\\"},
+                      { " __   __" ,
+                        " \\ \\ / /" ,
+                        "  \\ V / " ,
+                        "   > <  " ,
+                        "  / . \\ " ,
+                        " /_/ \\_\\"}
+        };
+
+        String[] expectedStringPrint = {
+                RomanPrinter.convertToString(expectedPrint[0]),
+                RomanPrinter.convertToString(expectedPrint[1]),
+                RomanPrinter.convertToString(expectedPrint[2]),
+                RomanPrinter.convertToString(expectedPrint[3])
         };
 
         String[] outputPrint = new String[expectedStringPrint.length];

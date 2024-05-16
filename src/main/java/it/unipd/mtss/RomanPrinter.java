@@ -37,17 +37,24 @@ public class RomanPrinter {
                         "   \\ \\/ /  ",
                         "    \\  /   ",
                         "     \\/    " },
+                      { " __   __",
+                        " \\ \\ / /",
+                        "  \\ V / ",
+                        "   > <  ",
+                        "  / . \\ ",
+                        " /_/ \\_\\" },
         };
 
         for (char c : romanNumber.toCharArray()) {
-            switch (c) {
-                case 'I':
+            switch (c) {   case 'I':
                     appendMatrix(destination, matrices[0]);
                     break;
                 case 'V':
                     appendMatrix(destination, matrices[1]);
                     break;
-
+                case 'X':
+                    appendMatrix(destination, matrices[2]);
+                    break;
             }
         }
     }
