@@ -19,7 +19,7 @@ public class IntegerToRoman {
                     "come parametro un numero minore di zero");
         }
 
-        int threshold = 3;
+        int threshold = 6;
         if(number > threshold) {
             String message = String.format("E' stato passato " +
                     "come parametro un numero maggiore di %d", threshold);
@@ -28,8 +28,10 @@ public class IntegerToRoman {
 
         HashMap<Integer, String> map = new HashMap<>();
         map.put(1, "I");
+        map.put(4, "IV");
+        map.put(5, "V");
 
-        int[] decimalValues = { 1 };
+        int[] decimalValues = {5, 4, 1 };
         StringBuilder romanNumeral = new StringBuilder();
 
         for (int decimalValue : decimalValues) {
