@@ -30,11 +30,25 @@ public class RomanPrinter {
                         "   | |  ",
                         "   | |  ",
                         "  _| |_ ",
-                        " |_____|" }
+                        " |_____|" },
+                      { " __      __",
+                        " \\ \\    / /",
+                        "  \\ \\  / / ",
+                        "   \\ \\/ /  ",
+                        "    \\  /   ",
+                        "     \\/    " },
         };
 
         for (char c : romanNumber.toCharArray()) {
-            appendMatrix(destination, matrices[0]);
+            switch (c) {
+                case 'I':
+                    appendMatrix(destination, matrices[0]);
+                    break;
+                case 'V':
+                    appendMatrix(destination, matrices[1]);
+                    break;
+
+            }
         }
     }
 

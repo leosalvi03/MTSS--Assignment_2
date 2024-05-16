@@ -25,7 +25,7 @@ public class RomanPrinterTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testPrint_NumberOutOfRange() {
-        int num = 4;
+        int num = 7;
 
         String res = IntegerToRoman.convert(num);
     }
@@ -52,6 +52,44 @@ public class RomanPrinterTest {
                         "   | |     | |     | |  ",
                         "  _| |_   _| |_   _| |_ ",
                         " |_____| |_____| |_____|"    }
+        };
+
+        String[] expectedStringPrint = {
+                RomanPrinter.convertToString(expectedPrint[0]),
+                RomanPrinter.convertToString(expectedPrint[1]),
+                RomanPrinter.convertToString(expectedPrint[2])
+        };
+
+        String[] outputPrint = new String[expectedStringPrint.length];
+        for (int i=0; i<inputDecimalNumbers.length; i++){
+            outputPrint[i] = RomanPrinter.print(inputDecimalNumbers[i]);
+        }
+
+        assertArrayEquals(expectedStringPrint, outputPrint);
+    }
+
+    @Test
+    public void testPrintFromFourToSix() {
+        int[] inputDecimalNumbers = {4,5,6};
+        String[][] expectedPrint = {
+                { "  _____  __      __",
+                        " |_   _| \\ \\    / /",
+                        "   | |    \\ \\  / / ",
+                        "   | |     \\ \\/ /  ",
+                        "  _| |_     \\  /   ",
+                        " |_____|     \\/    " },
+                { " __      __",
+                        " \\ \\    / /",
+                        "  \\ \\  / / ",
+                        "   \\ \\/ /  ",
+                        "    \\  /   ",
+                        "     \\/    " },
+                {" __      __  _____ ",
+                        " \\ \\    / / |_   _|",
+                        "  \\ \\  / /    | |  ",
+                        "   \\ \\/ /     | |  ",
+                        "    \\  /     _| |_ ",
+                        "     \\/     |_____|"}
         };
 
         String[] expectedStringPrint = {
