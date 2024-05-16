@@ -37,12 +37,6 @@ jobs:
       - name: Add badges
         run:
           git add .github/ReadmeBadges
-          
-      - name: Print branch
-        run:
-          echo "ref = ${{ github.ref }}"
-          echo "head_ref = ${{ github.head_ref }}"
-          echo "token = ${{ secrets.GITHUB_TOKEN }}"
 
       - name: Commit files
         run: |
