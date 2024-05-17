@@ -541,8 +541,8 @@ public class RomanPrinterTest {
                         "\\ \\/ /     | |  ",
                 " | |__| | | |____  | |____  | |____  | |____     " +
                         "\\  /     _| |_ ",
-                " |_____/   \\_____|  \\_____|  \\_____| |______|  " +
-                        "   \\/     |_____|"}
+                " |_____/   \\_____|  \\_____|  \\_____| |______| " +
+                        "    \\/     |_____|"}
         };
 
         String[] expectedStringPrint = new String[inputDecimalNumbers.length];
