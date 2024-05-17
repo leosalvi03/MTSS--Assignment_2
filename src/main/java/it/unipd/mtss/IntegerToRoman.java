@@ -19,7 +19,7 @@ public class IntegerToRoman {
                     "come argomento un numero minore di zero");
         }
 
-        int threshold = 500;
+        int threshold = 1000;
         if(number > threshold) {
             String message = String.format("E' stato passato " +
                     "come argomento un numero maggiore di %d", threshold);
@@ -38,9 +38,12 @@ public class IntegerToRoman {
         map.put(100, "C");
         map.put(400, "CD");
         map.put(500, "D");
+        map.put(900, "CM");
+        map.put(1000, "M");
 
 
-        int[] decimalValues = { 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+        int[] decimalValues = { 1000, 900, 500, 400, 100, 90,
+                50, 40, 10, 9, 5, 4, 1 };
         StringBuilder romanNumeral = new StringBuilder();
 
         for (int decimalValue : decimalValues) {
