@@ -25,7 +25,7 @@ public class IntegerToRomanTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testConvert_NumberOutOfRange() {
-        int num = 51;
+        int num = 101;
 
         String res = IntegerToRoman.convert(num);
     }

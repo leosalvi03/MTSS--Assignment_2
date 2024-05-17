@@ -25,7 +25,7 @@ public class RomanPrinterTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testPrint_NumberOutOfRange() {
-        int num = 51;
+        int num = 101;
 
         String res = IntegerToRoman.convert(num);
     }
@@ -267,6 +267,87 @@ public class RomanPrinterTest {
                 RomanPrinter.convertToString(expectedPrint[5]),
                 RomanPrinter.convertToString(expectedPrint[6])
         };
+
+        String[] outputPrint = new String[expectedStringPrint.length];
+        for (int i=0; i<inputDecimalNumbers.length; i++){
+            outputPrint[i] = RomanPrinter.print(inputDecimalNumbers[i]);
+        }
+
+        assertArrayEquals(expectedStringPrint, outputPrint);
+    }
+
+    @Test
+    public void testPrint_FromFiftyOneToOneHundred() {
+        int[] inputDecimalNumbers = {51, 60, 74, 86, 89, 90, 94, 95, 99, 100};
+        String[][] expectedPrint = {
+                { "  _        _____ ",
+                " | |      |_   _|",
+                " | |        | |  ",
+                " | |        | |  ",
+                " | |____   _| |_ ",
+                " |______| |_____|" },
+                { "  _       __   __",
+                " | |      \\ \\ / /",
+                " | |       \\ V / ",
+                " | |        > <  ",
+                " | |____   / . \\ ",
+                " |______| /_/ \\_\\" },
+                {"  _       __   __ __   __  _____  __      __",
+                " | |      \\ \\ / / \\ \\ / / |_   _| \\ \\    / /",
+                " | |       \\ V /   \\ V /    | |    \\ \\  / / ",
+                " | |        > <     > <     | |     \\ \\/ /  ",
+                " | |____   / . \\   / . \\   _| |_     \\  /   ",
+                " |______| /_/ \\_\\ /_/ \\_\\ |_____|     \\/    "},
+                {"  _       __   __ __   __ __   __ __      __  _____ ",
+                " | |      \\ \\ / / \\ \\ / / \\ \\ / / \\ \\    / / |_   _|",
+                " | |       \\ V /   \\ V /   \\ V /   \\ \\  / /    | |  ",
+                " | |        > <     > <     > <     \\ \\/ /     | |  ",
+                " | |____   / . \\   / . \\   / . \\     \\  /     _| |_ ",
+                " |______| /_/ \\_\\ /_/ \\_\\ /_/ \\_\\     \\/     |_____|"},
+                {"  _       __   __ __   __ __   __  _____  __   __",
+                " | |      \\ \\ / / \\ \\ / / \\ \\ / / |_   _| \\ \\ / /",
+                " | |       \\ V /   \\ V /   \\ V /    | |    \\ V / ",
+                " | |        > <     > <     > <     | |     > <  ",
+                " | |____   / . \\   / . \\   / . \\   _| |_   / . \\ ",
+                " |______| /_/ \\_\\ /_/ \\_\\ /_/ \\_\\ |_____| /_/ \\_\\"},
+                {" __   __   _____ ",
+                " \\ \\ / /  / ____|",
+                "  \\ V /  | |     ",
+                "   > <   | |     ",
+                "  / . \\  | |____ ",
+                " /_/ \\_\\  \\_____|"},
+                {" __   __   _____   _____  __      __",
+                " \\ \\ / /  / ____| |_   _| \\ \\    / /",
+                "  \\ V /  | |        | |    \\ \\  / / ",
+                "   > <   | |        | |     \\ \\/ /  ",
+                "  / . \\  | |____   _| |_     \\  /   ",
+                " /_/ \\_\\  \\_____| |_____|     \\/    "},
+                {" __   __   _____  __      __",
+                " \\ \\ / /  / ____| \\ \\    / /",
+                "  \\ V /  | |       \\ \\  / / ",
+                "   > <   | |        \\ \\/ /  ",
+                "  / . \\  | |____     \\  /   ",
+                " /_/ \\_\\  \\_____|     \\/    "},
+                {" __   __   _____   _____  __   __",
+                " \\ \\ / /  / ____| |_   _| \\ \\ / /",
+                "  \\ V /  | |        | |    \\ V / ",
+                "   > <   | |        | |     > <  ",
+                "  / . \\  | |____   _| |_   / . \\ ",
+                " /_/ \\_\\  \\_____| |_____| /_/ \\_\\"},
+                {"   _____ ",
+                "  / ____|",
+                " | |     ",
+                " | |     ",
+                " | |____ ",
+                "  \\_____|"}
+        };
+
+        String[] expectedStringPrint = new String[inputDecimalNumbers.length];
+
+        for(int i=0; i<inputDecimalNumbers.length; i++){
+            expectedStringPrint[i] =
+                    RomanPrinter.convertToString(expectedPrint[i]);
+        }
 
         String[] outputPrint = new String[expectedStringPrint.length];
         for (int i=0; i<inputDecimalNumbers.length; i++){
