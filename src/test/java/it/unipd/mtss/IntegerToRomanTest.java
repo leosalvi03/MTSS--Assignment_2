@@ -25,7 +25,7 @@ public class IntegerToRomanTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testConvert_NumberOutOfRange() {
-        int num = 501;
+        int num = 1001;
 
         String res = IntegerToRoman.convert(num);
     }
@@ -165,6 +165,38 @@ public class IntegerToRomanTest {
                  "CDXXXIII", "CDXXXIX", "CDXLIII", "CDXLIX",
                  "CDLII", "CDLIX", "CDLXIII", "CDLXIX", "CDLXXIV", "CDLXXVIII",
                  "CDLXXXIII", "CDLXXXVIII", "CDXCIV", "D"};
+
+        String[] outputRomanNumbers = new String[expectedRomanNumbers.length];
+        for (int i = 0; i < inputDecimalNumbers.length; i++) {
+            outputRomanNumbers[i] =
+                    IntegerToRoman.convert(inputDecimalNumbers[i]);
+        }
+
+        assertArrayEquals(expectedRomanNumbers, outputRomanNumbers);
+    }
+
+    @Test
+    public void testConvert_FromFiveHundredOneToOneThousand() {
+        int[] inputDecimalNumbers =
+                {678, 832, 745, 912, 567, 789, 923, 601, 874, 543,
+                956, 712, 689, 535, 937, 800, 562, 1000, 577, 830,
+                922, 777, 520, 565, 649, 693, 810, 935, 584, 904,
+                794, 570, 742, 634, 913, 985, 568, 646, 931, 997,
+                824, 837, 675, 994, 616, 875, 695, 864, 599, 726
+                };
+
+        String[] expectedRomanNumbers =
+                {"DCLXXVIII", "DCCCXXXII", "DCCXLV", "CMXII", "DLXVII",
+                "DCCLXXXIX", "CMXXIII", "DCI", "DCCCLXXIV", "DXLIII",
+                "CMLVI", "DCCXII", "DCLXXXIX", "DXXXV", "CMXXXVII", "DCCC",
+                "DLXII", "M", "DLXXVII", "DCCCXXX",
+                "CMXXII", "DCCLXXVII", "DXX", "DLXV", "DCXLIX", "DCXCIII",
+                "DCCCX", "CMXXXV", "DLXXXIV", "CMIV",
+                "DCCXCIV", "DLXX", "DCCXLII", "DCXXXIV", "CMXIII", "CMLXXXV",
+                "DLXVIII", "DCXLVI", "CMXXXI", "CMXCVII", "DCCCXXIV",
+                "DCCCXXXVII", "DCLXXV", "CMXCIV", "DCXVI", "DCCCLXXV",
+                "DCXCV", "DCCCLXIV", "DXCIX", "DCCXXVI"
+                };
 
         String[] outputRomanNumbers = new String[expectedRomanNumbers.length];
         for (int i = 0; i < inputDecimalNumbers.length; i++) {
